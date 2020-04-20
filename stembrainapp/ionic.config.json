@@ -1,5 +1,5 @@
 {
-  "name": "stembrainapp",
+  "name": "realtime_database",
   "integrations": {
     "capacitor": {}
   },
