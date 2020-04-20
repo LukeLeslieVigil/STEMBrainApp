@@ -10,7 +10,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, square, list } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -34,6 +34,23 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/*Firebase Imports */
+
+// TODO: Put in a seperate file and exclue from git with .gitignore
+import firebase from 'firebase/app';
+var firebaseConfig = {
+  apiKey: "AIzaSyC0NtKgdAzM_meTl-at_sbLeFOw9uke-sg",
+  authDomain: "realtime-database-af850.firebaseapp.com",
+  databaseURL: "https://realtime-database-af850.firebaseio.com",
+  projectId: "realtime-database-af850",
+  storageBucket: "realtime-database-af850.appspot.com",
+  messagingSenderId: "277688352398",
+  appId: "1:277688352398:web:0e045b395c62dda425d3df",
+  measurementId: "G-LFEJFDWB8B"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -46,8 +63,8 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab One</IonLabel>
+            <IonIcon icon={list} />
+            <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={ellipse} />
