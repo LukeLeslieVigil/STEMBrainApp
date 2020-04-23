@@ -1,0 +1,8 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+}

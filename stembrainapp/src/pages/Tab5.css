@@ -1,0 +1,13 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+h1 {
+  padding-left: 10px;
+  text-align: left;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+}
