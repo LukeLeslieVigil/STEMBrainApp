@@ -2,7 +2,10 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonButton, IonIcon } from '@ionic/react';
 import './Tab2.css';
 import { star, exit, flask } from 'ionicons/icons';
+import Questions from '../Questions';
 
+const questionType = "science";
+const questionDifficulty = "Basic";
 const Tab2: React.FC = () => {
   return (
     <IonPage>
@@ -30,7 +33,7 @@ const Tab2: React.FC = () => {
         </IonCard>
         <IonCard>
           <IonCardContent>
-            <IonButton expand="block" shape="round" color="success" size="large" href="tab3">
+            <IonButton expand="block" shape="round" color="success" size="large" onClick={ () => {Questions(questionType, questionDifficulty);}}>
               <IonIcon slot="start" icon={flask} />
               Learning Progress
               </IonButton>
