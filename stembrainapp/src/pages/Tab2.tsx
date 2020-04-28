@@ -1,12 +1,21 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonButton, IonIcon } from '@ionic/react';
+import firebase from 'firebase';
+import { IonContent,IonText, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonButton, IonIcon } from '@ionic/react';
 import './Tab2.css';
 import { star, exit, flask } from 'ionicons/icons';
+import {useCollection, useDocument} from 'react-firebase-hooks/firestore';
 import Questions from '../Questions';
+import Item from '../item';
 
-const questionType = "science";
+export const questionType = "science";
 const questionDifficulty = "Basic";
 const Tab2: React.FC = () => {
+
+  const showQuestions = () =>
+  {
+    return <Questions/>;
+  }
+  
   return (
     <IonPage>
       <IonContent>
@@ -33,8 +42,9 @@ const Tab2: React.FC = () => {
         </IonCard>
         <IonCard>
           <IonCardContent>
-            <IonButton expand="block" shape="round" color="success" size="large" onClick={ () => {Questions(questionType, questionDifficulty);}}>
+            <IonButton expand="block" shape="round" color="success" size="large" onClick={() => showQuestions}>
               <IonIcon slot="start" icon={flask} />
+                
               Learning Progress
               </IonButton>
           </IonCardContent>

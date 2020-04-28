@@ -4,7 +4,7 @@ import {IonContent, IonCard, IonCardContent, IonButton} from '@ionic/react';
 import {useCollection} from 'react-firebase-hooks/firestore';
 
 
-function Answers(questionType, questionDifficulty, {doc})
+function Answers(questionType, questionDifficulty)
 {
     var i = 1;
     const [value, loading, error] = useCollection
@@ -17,10 +17,10 @@ function Answers(questionType, questionDifficulty, {doc})
             <IonContent>
                 <IonCard>
                 <IonCardContent>
-                    <IonButton value = {() => {doc.data("Answer1");} }/>
-                    <IonButton value = {() => {doc.data("Answer2");} }/>
-                    <IonButton value = {() => {doc.data("Answer3");} }/>
-                    <IonButton value = {() => {doc.data("Answer4");} }/>
+                    <IonButton value = {() => {value.field("Answer1");} }/>
+                    <IonButton value = {() => {value.field("Answer2");} }/>
+                    <IonButton value = {() => {value.field("Answer3");} }/>
+                    <IonButton value = {() => {value.field("Answer4");} }/>
                 </IonCardContent>
                 </IonCard>
             </IonContent>
