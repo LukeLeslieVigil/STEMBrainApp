@@ -2,8 +2,8 @@ import React from 'react';
 import { IonCard, IonCardHeader, IonCardContent, IonButton, IonIcon } from '@ionic/react';
 import {cog, power, beaker, returnDownBack, calculator} from 'ionicons/icons';
 
-function AddCategories() {
-    return(
+export default function AddCategories() {
+    return (
         <div>
             <IonCard>
           <IonCardHeader>
@@ -53,5 +53,3 @@ function AddCategories() {
         </div>
     )
 }
-
-export default AddCategories;

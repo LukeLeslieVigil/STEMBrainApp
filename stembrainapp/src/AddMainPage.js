@@ -15,7 +15,7 @@ function AddMainPage() {
         </IonCard>
         <IonCard>
           <IonCardContent>
-            <IonButton expand="block" shape="round" size="large" href="tab3">
+            <IonButton expand="block" shape="round" size="large" href="Tab3">
               <IonIcon slot="start" icon={star} />
               Start Learning
             </IonButton>
