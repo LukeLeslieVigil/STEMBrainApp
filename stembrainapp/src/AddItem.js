@@ -6,7 +6,7 @@ import {IonButton, IonInput} from '@ionic/react';
 function AddItem({initialValue, clear})
 {
     const [item, setItem] = useState("");
-    const [value, loading, error] = useDocument(
+    const [value, loading] = useDocument(
     
         firebase.firestore().doc("items/" + initialValue),
         {

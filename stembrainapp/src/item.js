@@ -2,7 +2,7 @@ import React from 'react';
 import {IonItem, IonLabel, IonText, IonItemSliding, IonItemOption, IonItemOptions, IonIcon} from '@ionic/react';
 import {document, trash} from 'ionicons/icons';
 
-export default function Item({doEdit, doDelete, doc})
+export default function Item({doc})
 {
     let data = doc.data();
 
@@ -11,13 +11,13 @@ export default function Item({doEdit, doDelete, doc})
             <IonItem>
                 <IonLabel class = "ion-text-wrap"> 
                     <IonText className = "item-title">
-                        <div>{data.name}
+                        <div>{data.question}
                         
                         </div>
                     </IonText>
                     <IonText className = "item-sub-title">
                         <div>
-                            {new Date(data.createdOn) + ""}
+                            {new Date(data.type) + ""}
                         </div>
 
                     </IonText>
@@ -29,12 +29,12 @@ export default function Item({doEdit, doDelete, doc})
             </IonItem>
             <IonItemOptions>
 
-                <IonItemOption onClick = {()=> {doEdit(doc.id);}}>
+                <IonItemOption>
                     <IonIcon slot ="icon-only" icon={document}>
                     </IonIcon>
                 </IonItemOption>
 
-                <IonItemOption  color="danger" onClick={()=> doDelete(doc.id)}>
+                <IonItemOption>
                     <IonIcon slot ="icon-only" icon={trash}>
                     </IonIcon>
                 </IonItemOption>
