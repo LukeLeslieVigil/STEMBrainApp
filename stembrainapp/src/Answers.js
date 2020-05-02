@@ -1,33 +1,63 @@
 import React from 'react';
 import firebase from 'firebase';
-import {IonContent, IonCard, IonCardContent, IonButton} from '@ionic/react';
-import {useCollection} from 'react-firebase-hooks/firestore';
+import {IonCard, IonCardContent, IonButton, IonText, IonItem, IonList} from '@ionic/react';
+import {useDocument, useCollection} from 'react-firebase-hooks/firestore';
+import Item from './item';
 
-
-function Answers(questionType, questionDifficulty)
+export default function Answers()
 {
-    var i = 1;
-    const [value, loading, error] = useCollection
-    (      
-        firebase.firestore().collection(questionType + "Answers").doc(questionType + questionDifficulty + i)   
-    );
+    //const questionType = "science"
+   // const questionDifficulty = "Basic"
+    //var i = 1;
+
+  
+        const [value, loading, error] = useDocument
+        (      
+            firebase.firestore().collection("scienceAnswers").orderBy("Answer1","desc"),
+            {
+                snapshotListenOptions:{includeMetadataChanges: true}
+            }
+            
+        );
+
+        let ref = firebase.firestore().collection("scienceAnswers").doc("scienceBasic1").get();
+    
+    
 
     return(
-         
-            <IonContent>
+        <>
+        <IonList id="list">
                 <IonCard>
-                <IonCardContent>
-                    <IonButton value = {() => {value.field("Answer1");} }/>
-                    <IonButton value = {() => {value.field("Answer2");} }/>
-                    <IonButton value = {() => {value.field("Answer3");} }/>
-                    <IonButton value = {() => {value.field("Answer4");} }/>
-                </IonCardContent>
-                </IonCard>
-            </IonContent>
-        
-
+                    <IonCardContent>
+                        <IonButton  expand="block" shape="round" color="danger" size="large">
+                       
+                            
+                            {value && value.docs.map(doc => 
+                            {
+                                return(
+                                    !loading && (<Item doc ={doc}
+                                       
+                                        key = {doc.id}
+                                        />
+                                        )
+                                );
+                            })}
+                            
+                                   
+                                    
+                        </IonButton>
+                    </IonCardContent>
+              {/*          <IonButton>
+                            <IonText value = {() => { !loading && value.field("Answer3");} }/>
+                        </IonButton>
+                        <IonButton>
+                            <IonText value = {() => { !loading && value.field("Answer4");} }/>
+                        </IonButton>
+              */}
+              </IonCard>
+              </IonList>
+           
+        </>
     );
 
 }
-
-export default Answers;

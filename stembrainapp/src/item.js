@@ -11,13 +11,13 @@ export default function Item({doc})
             <IonItem>
                 <IonLabel class = "ion-text-wrap"> 
                     <IonText className = "item-title">
-                        <div>{data.name}
+                        <div>{data.question}
                         
                         </div>
                     </IonText>
                     <IonText className = "item-sub-title">
                         <div>
-                            {new Date(data.createdOn) + ""}
+                            {new Date(data.type) + ""}
                         </div>
 
                     </IonText>

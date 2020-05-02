@@ -1,20 +1,21 @@
 import React from 'react';
-import firebase from 'firebase';
-import { IonContent,IonText, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonButton, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonButton, IonIcon } from '@ionic/react';
 import './Tab2.css';
 import { star, exit, flask } from 'ionicons/icons';
-import {useCollection, useDocument} from 'react-firebase-hooks/firestore';
 import Questions from '../Questions';
-import Item from '../item';
+import Answers from '../Answers';
 
 export const questionType = "science";
-const questionDifficulty = "Basic";
+export const questionDifficulty = "Basic";
+
 const Tab2: React.FC = () => {
 
   const showQuestions = () =>
   {
-    return <Questions/>;
+    /* this didn't end up working for showing the components from Questions */
+    return <Questions/>
   }
+
   
   return (
     <IonPage>
@@ -42,11 +43,13 @@ const Tab2: React.FC = () => {
         </IonCard>
         <IonCard>
           <IonCardContent>
-            <IonButton expand="block" shape="round" color="success" size="large" onClick={() => showQuestions}>
+            <IonButton expand="block" shape="round" color="success" size="large" /* href="Questions"*/ /*href with the questions didn't render the button properly either*/>
               <IonIcon slot="start" icon={flask} />
-                
+              
+              
               Learning Progress
               </IonButton>
+              
           </IonCardContent>
         </IonCard>
         <IonCard>
@@ -57,6 +60,17 @@ const Tab2: React.FC = () => {
             </IonButton>
           </IonCardContent>
         </IonCard>
+
+      {/*  
+      Delete the comment here to see our progress
+      Ran into some issues trying to pull data from the database
+      Since it is a new language and format to learn with the database we had some troubles.
+
+      below is the JSX component that displays the button
+
+      <Answers/>
+      
+      */}
       </IonContent>
     </IonPage>
   );

@@ -1,58 +1,100 @@
-import React, { useEffect } from 'react';
-import firebase from 'firebase';
-import {IonPage, IonContent, IonCard, IonCardContent, IonText} from '@ionic/react';
-import {useCollection} from 'react-firebase-hooks/firestore';
+import React from 'react';
+
+import './Questions.css'
+import {IonPage, IonContent, IonCard, IonCardContent} from '@ionic/react';
+
 import Answers from './Answers';
-import Tab2 from './pages/Tab2';
-import questionType from './pages/Tab2';
-import Item from './item';
 
 //(questionType, questionDifficulty)
 
 const Questions: React.FC = () => {
-    const [value, loading, error] = useCollection
+
+  
+  
+  /*let collectionRef = firebase.firestore().collection('col');
+  let documentRef = collectionRef.doc('doc');
+  
+  return documentRef.set({x:10, y:5}).then(() => {
+    return collectionRef.where('x', '>', 5).select('y').get();
+  }).then((res) => {
+    console.log(`y is ${res.docs[0].get('y')}.`);
+  });
+*/
+
+ // const ref = firebase.firestore().collection("scienceQuestions").doc("scienceBasic1");
+
+
+        
+       
+ /*const docRef = collRef.get()
+        .then(doc => {
+          if (!doc.exists) {
+            console.log('No such document!');
+          } else {
+            console.log('Document data:', doc.data());
+          }
+        })
+        .catch(err => {
+          console.log('Error getting document', err);
+        });
+
+*/
+
+  /*const getDoc = ref.get()
+          .then(doc=> {
+            if (!doc.exists) {
+              console.log('No such document!');
+            } else {
+              console.log('Document data:', doc.data());
+            }
+          })
+          .catch(err => {
+            console.log('Error getting document', err);
+          }); 
+
+  */
+  
+
+ /*const value = useCollection
   (
-    firebase.firestore().collection(questionType + "Questions").orderBy("desc"),
+    firebase.firestore().collection("scienceQuestions"),
     {
       snapshotListenOptions: {includeMetadataChanges:true}
     }
-  );
+  );*/
 
+ // var query = ref.where("type", "==", "scienceBasic1");
+ /*
     const debug = (bal:any) =>
     {
         console.log(bal);
     }
+    */
   
     return(
-        <IonPage>   
-            <IonContent>
-                <IonCard>
-                <IonCardContent>
-                    <IonText >
-                    {debug(value?.docs)}
-                      {value?.docs.map(doc =>{  
+      <IonPage>   
+      <IonContent>
+          <IonCard>
+          <IonCardContent>
+              <Answers/>
+          </IonCardContent>
+          </IonCard>
+      </IonContent>
+
+      
+  </IonPage> 
+    );
+
+
+    /*
+    {value.docs.map(doc =>{  
                         return(
                             
                           !loading && (<Item doc ={doc} key = {doc.id}  /> )
                            
                         );
                        })}
-                       
-                        
-                        
-                            
-                        
-                    </IonText>
-                </IonCardContent>
-                </IonCard>
-            </IonContent>
-
-            
-        </IonPage>
-    );
-    
-
-  
+                       */
 }
 
 export default Questions;

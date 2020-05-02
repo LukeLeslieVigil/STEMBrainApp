@@ -7,7 +7,7 @@ import {IonList} from '@ionic/react';
 
 export default function ItemList({doEdit})
 {
-    const[value, loading, error] = useCollection 
+    const[value, loading] = useCollection 
     (
         firebase.firestore().collection("items").orderBy("createdOn","desc"),
         {
