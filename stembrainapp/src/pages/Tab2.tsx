@@ -1,12 +1,16 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonButton, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonCard, IonCardContent, IonCardHeader, IonButton, IonIcon } from '@ionic/react';
 import './Tab2.css';
+/*
 import { star, exit, flask } from 'ionicons/icons';
 import Questions from '../Questions';
 import Answers from '../Answers';
 
 export const questionType = "science";
-export const questionDifficulty = "Basic";
+export const questionDifficulty = "Basic";*/
+
+import AddMainPage from '../AddMainPage'
+
 
 const Tab2: React.FC = () => {
 
@@ -20,6 +24,7 @@ const Tab2: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
+        {/*
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Tab 2</IonTitle>
@@ -71,6 +76,8 @@ const Tab2: React.FC = () => {
       <Answers/>
       
       */}
+*/}
+        <AddMainPage/>
       </IonContent>
     </IonPage>
   );
